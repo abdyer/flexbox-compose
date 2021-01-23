@@ -59,7 +59,6 @@ private fun SpaceEvenly() {
     ArrangementRow(arrangement = Arrangement.SpaceEvenly)
 }
 
-@OptIn(InternalLayoutApi::class)
 @Composable
 private fun ArrangementRow(arrangement: Arrangement.Horizontal) {
     Row(
