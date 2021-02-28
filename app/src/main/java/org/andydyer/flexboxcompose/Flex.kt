@@ -1,6 +1,5 @@
 package org.andydyer.flexboxcompose
 
-import androidx.compose.foundation.ScrollableColumn
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -51,7 +50,6 @@ private fun FlexShrink() {
     }
 }
 
-@OptIn(ExperimentalLayout::class)
 @Composable
 private fun FlexWrap() {
     Box(

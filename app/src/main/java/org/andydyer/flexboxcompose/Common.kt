@@ -2,10 +2,9 @@ package org.andydyer.flexboxcompose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -25,7 +24,7 @@ fun ChildScreenWithToolbar(
         title = title,
         navigationIcon = {
             IconButton(onClick = { navController.popBackStack() }) {
-                Icon(imageVector = Icons.Filled.ArrowBack)
+                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back arrow")
             }
         },
         content = content
@@ -42,9 +41,20 @@ fun ScreenWithToolbar(
         topBar = {
             TopAppBar(title = { Text(title) }, navigationIcon = navigationIcon)
         },
-        bodyContent = {
+        content = {
             content()
         }
+    )
+}
+
+@Composable
+fun ScrollableColumn(
+    modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit
+) {
+    Column(
+        modifier = modifier.verticalScroll(rememberScrollState()),
+        content = content
     )
 }
 
